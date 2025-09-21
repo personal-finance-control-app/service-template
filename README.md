@@ -8,7 +8,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Template](https://img.shields.io/badge/Template-Use_This-blueviolet)](https://github.com/finance-control-app/fc-service-template/generate)
+[![Template](https://img.shields.io/badge/Template-Use_This-blueviolet)](https://github.com/personal-finance-control-app/fc-service-template/generate)
 
 ## 🚀 Sobre o Template
 
@@ -77,10 +77,10 @@ fc-service-template/
 
 ### Método 1: Via GitHub UI (Recomendado)
 
-1. **Acesse o template**: [fc-service-template](https://github.com/finance-control-app/fc-service-template)
+1. **Acesse o template**: [fc-service-template](https://github.com/personal-finance-control-app/fc-service-template)
 2. **Clique em "Use this template"** → "Create a new repository"
 3. **Configure o novo repositório**:
-   - Owner: `finance-control-app`
+   - Owner: `personal-finance-control-app`
    - Repository name: `fc-{nome}-service`
    - Description: Microserviço para {funcionalidade}
    - ⚠️ **Marque "Public"**
@@ -90,8 +90,8 @@ fc-service-template/
 
 ```bash
 # Criar novo repositório a partir do template
-gh repo create finance-control-app/fc-{nome}-service \
-  --template finance-control-app/fc-service-template \
+gh repo create personal-finance-control-app/fc-{nome}-service \
+  --template personal-finance-control-app/fc-service-template \
   --public \
   --description "Microserviço para {funcionalidade}" \
   --add-topic "finance-control" \
@@ -99,7 +99,7 @@ gh repo create finance-control-app/fc-{nome}-service \
   --add-topic "python"
 
 # Clonar o novo repositório
-gh repo clone finance-control-app/fc-{nome}-service
+gh repo clone personal-finance-control-app/fc-{nome}-service
 cd fc-{nome}-service
 ```
 
@@ -107,7 +107,7 @@ cd fc-{nome}-service
 
 ```bash
 # Clonar o template
-git clone https://github.com/finance-control-app/fc-service-template.git fc-{nome}-service
+git clone https://github.com/personal-finance-control-app/fc-service-template.git fc-{nome}-service
 cd fc-{nome}-service
 
 # Remover a conexão com o template
@@ -115,7 +115,7 @@ rm -rf .git
 git init
 
 # Configurar novo repositório remoto
-git remote add origin https://github.com/finance-control-app/fc-{nome}-service.git
+git remote add origin https://github.com/personal-finance-control-app/fc-{nome}-service.git
 
 # Primeiro commit
 git add .
@@ -279,13 +279,13 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 🆘 Suporte
 
-- 📚 [Documentação do Projeto](https://github.com/finance-control-app/finance-control)
-- 🐛 [Reportar Bug](https://github.com/finance-control-app/fc-service-template/issues)
-- 💡 [Sugerir Melhoria](https://github.com/finance-control-app/fc-service-template/issues)
-- 💬 [Discussions](https://github.com/finance-control-app/finance-control/discussions)
+- 📚 [Documentação do Projeto](https://github.com/personal-finance-control-app/finance-control)
+- 🐛 [Reportar Bug](https://github.com/personal-finance-control-app/fc-service-template/issues)
+- 💡 [Sugerir Melhoria](https://github.com/personal-finance-control-app/fc-service-template/issues)
+- 💬 [Discussions](https://github.com/personal-finance-control-app/finance-control/discussions)
 
 ---
 
 **⭐ Gostou deste template? Deixe uma estrela no repositório!**
 
-*Template mantido por [Finance Control Team](https://github.com/finance-control-app)*
+*Template mantido por [Finance Control Team](https://github.com/personal-finance-control-app)*
