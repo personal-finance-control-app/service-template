@@ -279,7 +279,7 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 
 ## 🆘 Suporte
 
-- 📚 [Documentação do Projeto](https://github.com/personal-finance-control-app/finance-control)
+- 📚 [Documentação do Projeto](https://github.com/personal-finance-control-app/personal-finance-control)
 - 🐛 [Reportar Bug](https://github.com/personal-finance-control-app/service-template/issues)
 - 💡 [Sugerir Melhoria](https://github.com/personal-finance-control-app/service-template/issues)
 - 💬 [Discussions](https://github.com/personal-finance-control-app/finance-control/discussions)
