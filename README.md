@@ -28,14 +28,12 @@ service-template/
 │   │   │   ├── __init__.py
 │   │   │   └── teste_controller.py
 │   │   ├── entities/
-│   │   │   └── __init__.py
-│   │   ├── enums/
-│   │   │   └── __init__.py
-│   │   ├── models/
-│   │   │   ├── __init__.py
+│   │   │   ├── enums/
+│   │   │   │   └── __init__.py
+│   │   │   ├── models/
+│   │   │   │   ├── __init__.py
 │   │   │   └── __init__.py
 │   │   ├── repository/
-│   │   │   ├── __init__.py
 │   │   │   └── __init__.py
 │   │   ├── services/
 │   │   │   ├── __init__.py
@@ -60,7 +58,6 @@ service-template/
 │   ├── unit/                   # Testes unitários
 │   ├── __init__.py
 │   └── conftest.py             # Configuração do pytest
-├── logging.ini                 # Configuração de logging (INI)
 ├── logging.json                # Configuração de logging (JSON)
 ├── .dockerignore
 ├── .env.example                # Variáveis de ambiente exemplo
