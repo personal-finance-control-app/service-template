@@ -8,7 +8,7 @@
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Template](https://img.shields.io/badge/Template-Use_This-blueviolet)](https://github.com/personal-finance-control-app/fc-service-template/generate)
+[![Template](https://img.shields.io/badge/Template-Use_This-blueviolet)](https://github.com/personal-finance-control-app/service-template/generate)
 
 ## 🚀 Sobre o Template
 
@@ -18,7 +18,7 @@ Este repositório é um template para criar novos microserviços no projeto **Fi
 
 ### 🏗️ Estrutura do Projeto
 ```
-fc-service-template/
+service-template/
 ├── .github/
 │   └── workflows/
 │       ├── ci.yml              # Pipeline de CI
@@ -77,11 +77,11 @@ fc-service-template/
 
 ### Método 1: Via GitHub UI (Recomendado)
 
-1. **Acesse o template**: [fc-service-template](https://github.com/personal-finance-control-app/fc-service-template)
+1. **Acesse o template**: [service-template](https://github.com/personal-finance-control-app/service-template)
 2. **Clique em "Use this template"** → "Create a new repository"
 3. **Configure o novo repositório**:
    - Owner: `personal-finance-control-app`
-   - Repository name: `fc-{nome}-service`
+   - Repository name: `{nome}-service`
    - Description: Microserviço para {funcionalidade}
    - ⚠️ **Marque "Public"**
 4. **Adicione os tópicos**: `finance-control`, `microservice`, `python`
@@ -90,8 +90,8 @@ fc-service-template/
 
 ```bash
 # Criar novo repositório a partir do template
-gh repo create personal-finance-control-app/fc-{nome}-service \
-  --template personal-finance-control-app/fc-service-template \
+gh repo create personal-finance-control-app/{nome}-service \
+  --template personal-finance-control-app/service-template \
   --public \
   --description "Microserviço para {funcionalidade}" \
   --add-topic "finance-control" \
@@ -99,23 +99,23 @@ gh repo create personal-finance-control-app/fc-{nome}-service \
   --add-topic "python"
 
 # Clonar o novo repositório
-gh repo clone personal-finance-control-app/fc-{nome}-service
-cd fc-{nome}-service
+gh repo clone personal-finance-control-app/{nome}-service
+cd {nome}-service
 ```
 
 ### Método 3: Manual (Clone e Push)
 
 ```bash
 # Clonar o template
-git clone https://github.com/personal-finance-control-app/fc-service-template.git fc-{nome}-service
-cd fc-{nome}-service
+git clone https://github.com/personal-finance-control-app/service-template.git {nome}-service
+cd {nome}-service
 
 # Remover a conexão com o template
 rm -rf .git
 git init
 
 # Configurar novo repositório remoto
-git remote add origin https://github.com/personal-finance-control-app/fc-{nome}-service.git
+git remote add origin https://github.com/personal-finance-control-app/{nome}-service.git
 
 # Primeiro commit
 git add .
@@ -136,7 +136,7 @@ nano src/config.py
 
 # Atualizar o nome do serviço
 class Settings:
-    SERVICE_NAME = "fc-{nome}-service"  # ← Alterar aqui
+    SERVICE_NAME = "{nome}-service"  # ← Alterar aqui
     VERSION = "1.0.0"
 ```
 
@@ -150,7 +150,7 @@ cp .env.example .env
 nano .env
 
 # Configurações mínimas necessárias
-SERVICE_NAME=fc-{nome}-service
+SERVICE_NAME={nome}-service
 PORT=8000
 ENVIRONMENT=development
 LOG_LEVEL=INFO
@@ -200,10 +200,10 @@ uvicorn src.main:app --reload --port 8000
 
 ```bash
 # Build da imagem
-docker build -t fc-{nome}-service .
+docker build -t {nome}-service .
 
 # Executar container
-docker run -p 8000:8000 --env-file .env fc-{nome}-service
+docker run -p 8000:8000 --env-file .env {nome}-service
 ```
 
 ### Testes
@@ -280,8 +280,8 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICE
 ## 🆘 Suporte
 
 - 📚 [Documentação do Projeto](https://github.com/personal-finance-control-app/finance-control)
-- 🐛 [Reportar Bug](https://github.com/personal-finance-control-app/fc-service-template/issues)
-- 💡 [Sugerir Melhoria](https://github.com/personal-finance-control-app/fc-service-template/issues)
+- 🐛 [Reportar Bug](https://github.com/personal-finance-control-app/service-template/issues)
+- 💡 [Sugerir Melhoria](https://github.com/personal-finance-control-app/service-template/issues)
 - 💬 [Discussions](https://github.com/personal-finance-control-app/finance-control/discussions)
 
 ---
