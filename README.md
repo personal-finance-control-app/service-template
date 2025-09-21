@@ -8,283 +8,270 @@
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Template](https://img.shields.io/badge/Template-Use_This-blueviolet)](https://github.com/personal-finance-control-app/service-template/generate)
 
-## 🚀 Sobre o Template
+## 🏗️ Estrutura do Projeto (Nova Organização)
 
-Este repositório é um template para criar novos microserviços no projeto **Finance Control**. Ele fornece uma estrutura padronizada, configurações pré-definidas e pipelines CI/CD para acelerar o desenvolvimento de novos serviços.
-
-## 📦 O que está incluído
-
-### 🏗️ Estrutura do Projeto
 ```
 service-template/
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml              # Pipeline de CI
-│       ├── cd.yml              # Pipeline de CD
-│       └── codeql-analysis.yml # Análise de segurança
-├── src/
-│   ├── domain/                 # Entidades e regras de negócio
-│   │   ├── entities.py         # Entidades do domínio
-│   │   ├── repositories.py     # Interfaces de repositórios
-│   │   └── services.py         # Serviços de domínio
-│   ├── application/            # Camada de aplicação
-│   │   ├── use_cases.py        # Casos de uso
-│   │   └── dto.py              # Data Transfer Objects
-│   ├── infrastructure/         # Implementações concretas
-│   │   ├── database.py         # Configuração do banco
-│   │   ├── repositories.py     # Implementação de repositórios
-│   │   └── api/                # Controladores API
-│   │       ├── routes.py       # Rotas da API
-│   │       ├── dependencies.py # Dependências
-│   │       └── middleware.py   # Middlewares
+│       ├── ci.yml              # Pipeline de integração contínua
+│       ├── cd.yml              # Pipeline de deploy contínuo
+│       └── codeql-analysis.yml # Análise de segurança CodeQL
+├── app/
+│   ├── application/
+│   │   ├── __init__.py
+│   │   ├── dto.py              # Data Transfer Objects
+│   │   └── use_cases.py        # Casos de uso da aplicação
+│   ├── domain/
+│   │   ├── controllers/
+│   │   │   ├── __init__.py
+│   │   │   └── teste_controller.py
+│   │   ├── entities/
+│   │   │   └── __init__.py
+│   │   ├── enums/
+│   │   │   └── __init__.py
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   └── __init__.py
+│   │   ├── repository/
+│   │   │   ├── __init__.py
+│   │   │   └── __init__.py
+│   │   ├── services/
+│   │   │   ├── __init__.py
+│   │   │   └── example_service.py
+│   │   └── __init__.py
+│   ├── infrastructure/
+│   │   ├── api/
+│   │   │   └── __init__.py
+│   │   ├── database.py         # Configuração do banco de dados
+│   │   └── __init__.py
+│   ├── page/
+│   │   └── __init__.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── constants.py        # Constantes do projeto
+│   │   └── files.py            # Utilitários para manipulação de arquivos
+│   ├── __init__.py
 │   ├── config.py               # Configurações da aplicação
-│   ├── main.py                 # Entry point da aplicação
-│   └── container.py            # Injeção de dependência
+│   └── container.py            # Injeção de dependências
 ├── tests/
-│   ├── unit/                   # Testes unitários
 │   ├── integration/            # Testes de integração
-│   ├── conftest.py             # Configuração do pytest
-│   └── __init__.py
-├── scripts/
-│   ├── start.sh                # Script de inicialização
-│   ├── test.sh                 # Script de testes
-│   └── deploy.sh               # Script de deploy
-├── Dockerfile                  # Configuração Docker
-├── docker-compose.yml          # Docker Compose para desenvolvimento
-├── requirements.txt            # Dependências Python
-├── requirements-dev.txt        # Dependências de desenvolvimento
+│   ├── unit/                   # Testes unitários
+│   ├── __init__.py
+│   └── conftest.py             # Configuração do pytest
+├── logging.ini                 # Configuração de logging (INI)
+├── logging.json                # Configuração de logging (JSON)
+├── .dockerignore
 ├── .env.example                # Variáveis de ambiente exemplo
-├── .python-version             # Versão do Python
-├── .gitignore                  # Arquivos ignorados pelo git
-├── pyproject.toml              # Configuração de ferramentas
-└── README.md                   # Este arquivo
+├── .gitignore
+├── Dockerfile                  # Configuração Docker
+├── README.md                   # Documentação
+└── requirements.txt            # Dependências do projeto
 ```
 
-### ⚙️ Funcionalidades Pré-configuradas
+## 🎯 Camadas da Arquitetura
 
-- **✅ FastAPI** com configuração otimizada
-- **✅ Injeção de Dependência** com dependency-injector
-- **✅ Health Checks** automaticos (`/health`, `/ready`)
-- **✅ Metrics Prometheus** pré-configuradas (`/metrics`)
-- **✅ Logging Estruturado** com JSON formatting
-- **✅ CORS** configurado
-- **✅ Rate Limiting** básico
-- **✅ Validation** com Pydantic v2
+### 1. **Domain Layer** (`app/domain/`)
+- **Entities**: Entidades de domínio e modelos de dados
+- **Enums**: Definições de enumeradores
+- **Repository**: Interfaces para acesso a dados
+- **Services**: Lógica de negócio central
+- **Controllers**: Controladores de domínio
+
+### 2. **Application Layer** (`app/application/`)
+- **DTOs**: Objetos de transferência de dados
+- **Use Cases**: Casos de uso da aplicação
+
+### 3. **Infrastructure Layer** (`app/infrastructure/`)
+- **API**: Configurações e rotas da API
+- **Database**: Configuração de banco de dados
+
+### 4. **Utils** (`app/utils/`)
+- **Constants**: Constantes do projeto
+- **Files**: Utilitários para manipulação de arquivos
 
 ## 🚀 Como Usar Este Template
 
-### Método 1: Via GitHub UI (Recomendado)
-
-1. **Acesse o template**: [service-template](https://github.com/personal-finance-control-app/service-template)
-2. **Clique em "Use this template"** → "Create a new repository"
-3. **Configure o novo repositório**:
-   - Owner: `personal-finance-control-app`
-   - Repository name: `{nome}-service`
-   - Description: Microserviço para {funcionalidade}
-   - ⚠️ **Marque "Public"**
-4. **Adicione os tópicos**: `finance-control`, `microservice`, `python`
-
-### Método 2: Via GitHub CLI
+### Método Recomendado: Via GitHub Template
 
 ```bash
 # Criar novo repositório a partir do template
-gh repo create personal-finance-control-app/{nome}-service \
-  --template personal-finance-control-app/service-template \
+gh repo create finance-control-app/meu-novo-service \
+  --template finance-control-app/service-template \
   --public \
-  --description "Microserviço para {funcionalidade}" \
+  --description "Meu novo microserviço" \
   --add-topic "finance-control" \
-  --add-topic "microservice" \
-  --add-topic "python"
+  --add-topic "microservice"
 
 # Clonar o novo repositório
-gh repo clone personal-finance-control-app/{nome}-service
-cd {nome}-service
+gh repo clone finance-control-app/meu-novo-service
+cd meu-novo-service
 ```
 
-### Método 3: Manual (Clone e Push)
+### Personalização do Novo Serviço
 
 ```bash
-# Clonar o template
-git clone https://github.com/personal-finance-control-app/service-template.git {nome}-service
-cd {nome}-service
+# 1. Atualizar configurações básicas
+nano app/config.py
 
-# Remover a conexão com o template
-rm -rf .git
-git init
-
-# Configurar novo repositório remoto
-git remote add origin https://github.com/personal-finance-control-app/{nome}-service.git
-
-# Primeiro commit
-git add .
-git commit -m "chore: initial commit from template"
-
-# Push para o novo repositório
-git branch -M main
-git push -u origin main
-```
-
-## 🔧 Personalização do Novo Serviço
-
-### 1. Configuração Básica
-
-```bash
-# Editar o arquivo de configuração principal
-nano src/config.py
-
-# Atualizar o nome do serviço
-class Settings:
-    SERVICE_NAME = "{nome}-service"  # ← Alterar aqui
-    VERSION = "1.0.0"
-```
-
-### 2. Variáveis de Ambiente
-
-```bash
-# Copiar arquivo de exemplo
+# 2. Configurar variáveis de ambiente
 cp .env.example .env
-
-# Editar com configurações específicas
 nano .env
 
-# Configurações mínimas necessárias
-SERVICE_NAME={nome}-service
-PORT=8000
-ENVIRONMENT=development
-LOG_LEVEL=INFO
-```
-
-### 3. Dependências Específicas
-
-```bash
-# Editar requirements.txt para adicionar dependências únicas
+# 3. Atualizar dependências
 nano requirements.txt
 
-# Exemplo: adicionar dependência específica
-# fastapi==0.104.1
-# uvicorn==0.24.0
-# pymongo==4.6.0  # ← Nova dependência
+# 4. Personalizar entidades de domínio
+nano app/domain/models/__init__.py
+
+# 5. Configurar serviços de domínio
+nano app/domain/services/example_service.py
 ```
 
-### 4. Configuração da API
-
-```python
-# Editar src/main.py para personalizar a API
-app = FastAPI(
-    title="FC {Nome} Service",  # ← Alterar aqui
-    description="Microserviço para gerenciamento de {funcionalidade}",  # ← Alterar aqui
-    version="1.0.0",
-    docs_url="/docs",
-    redoc_url="/redoc",
-)
-```
-
-## 🧪 Desenvolvimento
-
-### Executar Localmente
+## ⚙️ Configuração Rápida
 
 ```bash
 # Instalar dependências
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 
-# Configurar variáveis de ambiente
+# Configurar ambiente
 cp .env.example .env
+# Editar .env com suas configurações
 
 # Executar em modo desenvolvimento
-uvicorn src.main:app --reload --port 8000
+uvicorn app.infrastructure.api:app --reload --port 8000
 ```
 
-### Executar com Docker
-
-```bash
-# Build da imagem
-docker build -t {nome}-service .
-
-# Executar container
-docker run -p 8000:8000 --env-file .env {nome}-service
-```
-
-### Testes
+## 🧪 Executando Testes
 
 ```bash
 # Executar todos os testes
-pytest
+pytest tests/ -v
 
-# Executar testes com coverage
-pytest --cov=src --cov-report=html
-
-# Executar testes específicos
+# Executar apenas testes unitários
 pytest tests/unit/ -v
+
+# Executar apenas testes de integração
+pytest tests/integration/ -v
+
+# Executar com coverage
+pytest --cov=app --cov-report=html
 ```
 
-## 📡 API Endpoints Pré-configurados
+## 📦 Deploy com Docker
+
+```bash
+# Build da imagem
+docker build -t meu-servico .
+
+# Executar container
+docker run -p 8000:8000 --env-file .env meu-servico
+```
+
+## 🔧 Principais Arquivos de Configuração
+
+### `app/config.py`
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    SERVICE_NAME: str = "meu-servico"
+    VERSION: str = "1.0.0"
+    ENVIRONMENT: str = "development"
+    DATABASE_URL: str
+    # Adicione outras configurações necessárias
+```
+
+### `app/container.py`
+```python
+from dependency_injector import containers, providers
+from .config import Settings
+
+class Container(containers.DeclarativeContainer):
+    config = providers.Configuration()
+    
+    # Registrar serviços e repositórios aqui
+    example_service = providers.Factory(
+        ExampleService
+    )
+```
+
+### `app/infrastructure/api/__init__.py`
+```python
+from fastapi import FastAPI
+from app.container import container
+
+app = FastAPI(
+    title=container.config.SERVICE_NAME,
+    version=container.config.VERSION
+)
+
+# Registrar rotas e middlewares aqui
+```
+
+## 🛠️ Implementando um Novo Serviço
+
+### 1. Definir Entidades (`app/domain/models/__init__.py`)
+```python
+from pydantic import BaseModel
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+```
+
+### 2. Criar Serviço de Domínio (`app/domain/services/`)
+```python
+class UserService:
+    async def create_user(self, user_data: dict):
+        # Lógica de negócio aqui
+        return user_data
+```
+
+### 3. Implementar Controlador (`app/domain/controllers/`)
+```python
+from fastapi import APIRouter
+from app.domain.services import UserService
+
+router = APIRouter()
+
+@router.post("/users")
+async def create_user(user_data: dict):
+    service = UserService()
+    return await service.create_user(user_data)
+```
+
+### 4. Registrar Rota (`app/infrastructure/api/__init__.py`)
+```python
+from app.domain.controllers import user_controller
+
+app.include_router(user_controller.router, prefix="/api/v1")
+```
+
+## 📊 Health Checks e Monitoramento
+
+O template inclui endpoints pré-configurados:
 
 - `GET /health` - Health check do serviço
-- `GET /ready` - Readiness check
 - `GET /metrics` - Métricas Prometheus
-- `GET /docs` - Documentação Swagger/OpenAPI
-- `GET /redoc` - Documentação Redoc
+- `GET /docs` - Documentação Swagger automática
 
-## 🔄 CI/CD Pipeline
-
-O template inclui pipelines automatizados:
-
-### CI Pipeline (.github/workflows/ci.yml)
-- ✅ Linting com flake8 e black
-- ✅ Type checking com mypy
-- ✅ Testes unitários e de integração
-- ✅ Coverage reporting
-- ✅ Security scanning
-
-### CD Pipeline (.github/workflows/cd.yml)
-- ✅ Build da imagem Docker
-- ✅ Push para GitHub Container Registry
-- ✅ Deploy para Kubernetes (configurável)
-- ✅ Rollback automático em caso de falha
-
-## 🛡️ Segurança
+## 🔒 Segurança
 
 Configurações de segurança incluídas:
-- ✅ Rate limiting
 - ✅ CORS configurado
-- ✅ Security headers
-- ✅ Input validation com Pydantic
-- ✅ SQL injection protection
-- ✅ Dependency scanning
-
-## 📊 Monitoring
-
-Métricas pré-configuradas:
-- ✅ HTTP request metrics
-- ✅ Database query metrics
-- ✅ Error rates
-- ✅ Response times
-- ✅ Business metrics
-
-## 🤝 Contribuindo para o Template
-
-Para sugerir melhorias no template:
-
-1. Fork este repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/improvement`)
-3. Commit suas mudanças (`git commit -am 'Add some improvement'`)
-4. Push para a branch (`git push origin feature/improvement`)
-5. Abra um Pull Request
+- ✅ Rate limiting
+- ✅ Validation com Pydantic v2
+- ✅ Environment variables para dados sensíveis
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-## 🆘 Suporte
-
-- 📚 [Documentação do Projeto](https://github.com/personal-finance-control-app/personal-finance-control)
-- 🐛 [Reportar Bug](https://github.com/personal-finance-control-app/service-template/issues)
-- 💡 [Sugerir Melhoria](https://github.com/personal-finance-control-app/service-template/issues)
+MIT License - veja [LICENSE](LICENSE) para detalhes.
 
 ---
 
 **⭐ Gostou deste template? Deixe uma estrela no repositório!**
 
-*Template mantido por [Finance Control Team](https://github.com/personal-finance-control-app)*
+*Template mantido por [Finance Control Team](https://github.com/finance-control-app)*
